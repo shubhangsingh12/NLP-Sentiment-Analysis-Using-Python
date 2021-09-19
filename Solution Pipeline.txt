@@ -1,0 +1,55 @@
+The final solution can be looked to be divided into two parts:
+
+Part 1: Deriving the business insights that are useful for product development and marketing.
+Part 2: Creating a sentiment classification engine.
+
+Steps 1 to 3 discussed below form the first part of the solution and step 4 constitutes the second part.  
+
+ 
+
+Step 1: Data pre-processing
+You are provided with two data files - Data and phone metadata. You need to look at a few entries of the data and the columns present. This will give you an idea of the attributes present in the data set and the kind of analysis that can be done with it. 
+
+Exploratory Data Analysis - To be able to proceed towards analysing the data, you will have to source, clean and understand the data both quantitatively and qualitatively. This involves the following steps:
+
+Sourcing the data - Since you have been already provided with the data files, this step only involves arranging the data into a proper format. You have the data as a .csv file, which can be directly read into a pandas data frame. But, the metadata is a zipped json file. You will need to unzip the data and load it into a dataframe.
+
+Cleaning the data by handling the missing values, removing duplicates, standardising, filtering, etc. It is possible that the data may have some missing values, or they can be in the wrong format. 
+For example, Asins are a unique identification number for each product in Amazon. Metadata contains duplicate Asins, so you will have to remove the duplicates, review text columns that cannot have blank entries, etc.
+
+'Category' column of the metadata contains a list for each entry. The second element of the list tells you whether the entry is a Cell Phone or an accessory. You can extract only the entries for the Cell Phones and work with it for this project.
+
+Deriving new features that can be helpful for the analysis. For example, you can make use of the column ‘also viewed’ to extract some features and get an idea of the competitor brands for each of the mobile phone brands. Converting the unixReview time to normal time stamp is another example.
+
+Choosing the columns that can be useful to the analysis from phone data and metadata, and merging them together based on some primary key value will open up more possibilities for the insights.
+Please note that the above are a few examples of the data pre-processing step to give you an initial sense. You should explore the further pre-processing steps on your own.
+
+ 
+
+Step 2: Text analytics
+This step involves the following:
+
+Cleaning the review text using the lexical processing methods and creating some useful word corpus that will be useful for the analysis. For example, you can create the most talked-about phone features in positive and negative reviews, visualise it and make it part of your tableau dashboard. You can further explore the insights which you can extract from this cleaned text.
+Using stemming/lemmatization is not compulsory but a good to have text pre-processing step. It will improve model performance in the latter part of the solution.
+Converting the cleaned text into a numeric format (bag-of-words or tf-idf) so that it can be fed into the machine learning models.
+You can make use of the positive and negative words corpuses provided to extract some features out of the review text and use it for visualisation.
+ 
+
+Step 3: Visualisation and storytelling
+In this step, you use the features that you had extracted from step 1 and step 2, identify the right KPIs and use them to create a Tableau dashboard and build a story around it.  One assumption here is, the popularity of the brand is proportional to the number of reviews. While building the story, remember the end-objective of this exercise is that the company should be able to make crisp and relevant decisions for developing the product and marketing strategies. Some of the relevant visualisations that were mentioned in the video are,
+Market share of competitors.
+Brand loyalty by comparing the alternate brands the consumers are considering before buying a particular brand.
+Important phone characteristics that resulted in positive or negative sentiments. You may find this link useful for this visualisation.
+Apart from the ones that are discussed above, you are expected to come up with more such useful visualisations on your own.
+
+ 
+
+Step 4: Building a sentiment classification engine
+Currently, you are provided with positive and negative labels for each review. In reality, such labels are generated manually, and then a model is trained. Once the base model is ready, it can be used for the real-time analysis of the reviews and helps in faster decision making. Naive Bayes is one of the widely used text classification algorithms which is used for sentiment analysis. You already have the textual data converted to numeric features from step 2, or you can do the same in this step and proceed with model building. 
+
+ 
+
+
+ 
+
+ 
